@@ -1,3 +1,4 @@
+import { PodcasterModule } from './podcaster/podcaster.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,7 +21,8 @@ import { AuthModule } from './auth/auth.module';
     HomeModule,
     ManagerModule,
     AdminModule,
-    AuthModule
+    AuthModule,
+    PodcasterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

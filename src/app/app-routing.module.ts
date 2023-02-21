@@ -4,12 +4,14 @@ import { ADMIN_ROUTES } from './admin/admin-routing.module';
 import { Auth_ROUTES } from './auth/auth-routing.module';
 import { HOME_ROUTES } from './home/home-routing.module';
 import { MANAGER_ROUTES } from './manager/manager-routing.module';
+import { PODCASTER_ROUTES } from './podcaster/podcaster-routing.module';
 
 const routes: Routes = [
   {path:'',children:HOME_ROUTES},
   {path:'auth',children:Auth_ROUTES},
   {path:'admin',children:ADMIN_ROUTES},
   {path:'manager',children:MANAGER_ROUTES},
+  {path:'podcatser',children:PODCASTER_ROUTES},
 ];
 
 @NgModule({
