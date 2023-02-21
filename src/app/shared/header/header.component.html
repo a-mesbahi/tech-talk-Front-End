@@ -1,4 +1,4 @@
-<nav class="bg-white  md:w-4/5 md:m-auto">
+<nav *ngIf="!isAuthPage" class="bg-white  md:w-4/5 md:m-auto">
     <div class="mx-auto border-b border-gray-200 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 justify-between">
         <div class="flex">
@@ -24,7 +24,7 @@
             <div class="hidden md:ml-12 md:flex md:space-x-8">
             <a routerLink="discover" class="inline-flex items-center font-extrabold px-1 pt-1 text-sm  text-gray-900">Discover</a>
             <a href="#" class="inline-flex items-center font-bold px-1 pt-1 text-sm  text-gray-900">Blog</a>
-            <a href="#" class="inline-flex items-center font-bold px-1 pt-1 text-sm  text-gray-900">Contact</a>
+            <a routerLink="contact" class="inline-flex items-center font-bold px-1 pt-1 text-sm  text-gray-900">Contact</a>
         </div>
     </div>
     <div class="flex items-center">

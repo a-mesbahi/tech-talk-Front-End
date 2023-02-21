@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscoverComponent } from './pages/discover/discover.component';
@@ -23,7 +22,6 @@ import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.co
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
   ]
 })
 export class HomeModule { }

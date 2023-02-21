@@ -1,6 +1,3 @@
-import { ManagerRoutingModule } from './manager/manager-routing.module';
-import { HomeRoutingModule } from './home/home-routing.module';
-import { AdminRoutingModule } from './admin/admin-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +7,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import {HomeModule} from "./home/home.module";
 import {ManagerModule} from "./manager/manager.module";
 import {AdminModule} from "./admin/admin.module";
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +17,10 @@ import {AdminModule} from "./admin/admin.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminRoutingModule,
-    HomeRoutingModule,
-    ManagerRoutingModule,
     HomeModule,
     ManagerModule,
     AdminModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

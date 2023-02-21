@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+  isAuthPage!:boolean;
 
-  constructor() { }
+  constructor(private router : Router) { }
+
 
   ngOnInit(): void {
+    this.router.events.subscribe(e=>{
+      if(e instanceof NavigationEnd){
+        this.isAuthPage =  e.url.toString().includes('auth');
+      }
+    })
   }
 
   openNavBar : boolean = false;
