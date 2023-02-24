@@ -13,6 +13,7 @@ yarn-error.log
 
 # IDEs and editors
 .idea/
+src/environments
 .project
 .classpath
 .c9/
