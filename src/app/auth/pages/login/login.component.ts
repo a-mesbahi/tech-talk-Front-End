@@ -14,4 +14,6 @@ export class LoginComponent implements OnInit {
     // console.log(this.router.url)
   }
 
+  toChoosePosition:boolean = false;
+
 }

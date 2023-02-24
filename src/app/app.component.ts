@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        this.isAuthPage = e.url.toString().includes("auth");
+        this.isAuthPage = e.url.toString().includes("auth") || e.url.toString().includes("manager");
       }
     });
   };

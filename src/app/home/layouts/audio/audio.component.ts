@@ -18,7 +18,7 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
   @Input() volumeSliderColor: any;
   @Input() timeSliderColor: any;
   @Input() audioList = [
-    "../../assets/music.mp4"
+    "https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/db12a109-0b1f-4706-ad8d-496694223b24.mp3"
   ];
   @Input() next = true;
   @Input() previous = true;
