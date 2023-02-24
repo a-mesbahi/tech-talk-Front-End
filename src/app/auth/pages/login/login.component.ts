@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,32 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  loginFormGroup!:FormGroup;
+  toChoosePosition:boolean = false;
+  position!:string;
+
+  constructor(private formBuilder:FormBuilder) { }
+  
 
   ngOnInit(): void {
-    // console.log(this.router.url)
+    this.loginFormGroup = this.formBuilder.group({
+      'email':this.formBuilder.control('',[Validators.required,Validators.email,Validators.minLength(8)]),
+      'password':this.formBuilder.control('',[Validators.required,Validators.minLength(3)])
+    });
   }
 
-  toChoosePosition:boolean = false;
+  login(){
+    if(this.loginFormGroup.valid){
+      
+    }
+  }
+
+  selectPosition(position:string){
+      this.position=position;
+      this.toChoosePosition=false
+  }
+
+  
+
 
 }

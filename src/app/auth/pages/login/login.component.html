@@ -64,9 +64,9 @@
             </div>
     
             <div class="mt-6 font-bold ">
-            <form action="#" method="POST" class="space-y-6 ">
+            <form [formGroup]="loginFormGroup" (ngSubmit)="login()" class="space-y-6 ">
                 <div class="relative text-left flex justify-between w-full">
-                    <h1>Choose position</h1>
+                    <h1>Choose position <span *ngIf="position!=null">( {{ position }} )</span></h1>
                     <div>
                     <button (click)="toChoosePosition=!toChoosePosition" type="button" class="bg-gray-100 rounded-full flex items-center text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
                         <span class="sr-only">Open options</span>
@@ -77,23 +77,23 @@
                     </div>
                     <div *ngIf="toChoosePosition" class="origin-top-right absolute right-1 mt-5 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                     <div class="py-1" role="none">
-                        <span class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Admin</span>
-                        <span class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Manager</span>
-                        <span class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Podcaster</span>
+                        <span (click)="selectPosition('admin')" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">Admin</span>
+                        <span (click)="selectPosition('manager')" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-1">Manager</span>
+                        <span (click)="selectPosition('podcaster')" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-2">Podcaster</span>
                     </div>
                     </div>
                 </div>
                 <div>
                 <label for="email" class="block text-base font-bold text-gray-700">Email address</label>
                 <div class="mt-1">
-                    <input id="email" name="email" type="email" autocomplete="email" required class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-base shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    <input formControlName="email" id="email" name="email" type="email" autocomplete="email" required class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-base shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                 </div>
                 </div>
     
                 <div class="space-y-1">
                 <label for="password" class="block text-base font-bold text-gray-700">Password</label>
                 <div class="mt-1">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2  placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    <input formControlName="password" id="password" name="password" type="password" autocomplete="current-password" required class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2  placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                 </div>
                 </div>
     
