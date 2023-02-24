@@ -11,11 +11,13 @@ import {ManagerModule} from "./manager/manager.module";
 import {AdminModule} from "./admin/admin.module";
 import { AuthModule } from './auth/auth.module';
 import { InterceptorService } from './shared/interceptors/interceptor.service';
+import { EnvPipe } from './shared/pipes/env.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    EnvPipe
   ],
   imports: [
     HttpClientModule,

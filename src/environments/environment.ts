@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  serverUrl:'http://localhost:9999'
+  serverUrl:'http://localhost:9999',
+  fireBaseUrl:'https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/',
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file
