@@ -17,10 +17,10 @@ export class InterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (!req.url.includes('login') || !req.url.includes('register')) {
+    if (!req.url.includes('login') || !req.url.includes('podcaster/register')) {
       req = req.clone({
         url: environment.serverUrl + req.url,
-        headers: req.headers.set('Authorization', 'Bearer '),
+        // headers: req.headers.set('Authorization', 'Bearer '),
       });
     }
     return next.handle(req);

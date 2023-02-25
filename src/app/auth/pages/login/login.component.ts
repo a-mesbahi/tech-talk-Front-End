@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { Next } from 'react-bootstrap/esm/PageItem';
+import { UserServiceService } from '../../user-service.service';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
   toChoosePosition:boolean = false;
   position!:string;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder,private userService:UserServiceService) { }
   
 
   ngOnInit(): void {
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginFormGroup.valid){
-      
+      this.userService.login(this.loginFormGroup.value.email,this.loginFormGroup.value.password,this.position)
+      .subscribe((res:any)=>console.log(res))
     }
   }
 
