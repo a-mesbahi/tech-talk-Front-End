@@ -14,6 +14,7 @@ import { RegisterComponent } from './pages/register/register.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [],
 })
 export class AuthModule { }

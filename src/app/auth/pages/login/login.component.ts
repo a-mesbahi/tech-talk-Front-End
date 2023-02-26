@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Next } from 'react-bootstrap/esm/PageItem';
-import { UserServiceService } from '../../user-service.service';
+import { UserServiceService } from '../../service/user-service.service';
+import { AuthenticatedMoule } from '../../utils/authenticated.module';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginFormGroup!:FormGroup;
   toChoosePosition:boolean = false;
   position!:string;
+  sendingRequest:boolean = false;
 
   constructor(private formBuilder:FormBuilder,private userService:UserServiceService) { }
   
@@ -27,8 +29,20 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginFormGroup.valid){
+      this.sendingRequest = true
       this.userService.login(this.loginFormGroup.value.email,this.loginFormGroup.value.password,this.position)
-      .subscribe((res:any)=>console.log(res))
+      .subscribe({
+        next:(re:AuthenticatedMoule)=>{
+          localStorage.setItem('token',JSON.stringify(re))
+        },
+        error:(err)=>console.log(err),
+        complete:()=>{
+          setTimeout(()=>{
+            this.sendingRequest = false
+            this.userService.checkToken()
+          },5000)
+        }
+      })
     }
   }
 

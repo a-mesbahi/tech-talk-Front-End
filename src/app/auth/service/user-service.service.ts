@@ -1,7 +1,10 @@
+import { AuthenticatedMoule } from './../utils/authenticated.module';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +24,14 @@ export class UserServiceService {
 
   register(registerForm: FormGroup){
     return this.httpClient.post(this.PODCATSER_REGITSER_ENDPOINT,registerForm.value)
+  }
+
+
+  checkToken(){
+    let  token = localStorage.getItem('token');
+    if(token!=null){
+      let tokenJson:AuthenticatedMoule = JSON.parse(token)
+    }
   }
 
 }

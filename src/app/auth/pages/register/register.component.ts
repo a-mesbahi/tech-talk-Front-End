@@ -1,4 +1,4 @@
-import { UserServiceService } from './../../user-service.service';
+import { UserServiceService } from './../../service/user-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
