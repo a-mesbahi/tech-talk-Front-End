@@ -13,6 +13,9 @@ export class RegisterComponent implements OnInit {
   firstName:string = "";
   lastName:string = "";
   fullName:String = `${this.firstName} : ${this.lastName} `; 
+  sendingRequest:boolean = false;
+  showRegisterAlert:boolean = false;
+
   constructor(private formBuilder:FormBuilder, private userService:UserServiceService) { }
 
   ngOnInit(): void {
@@ -29,8 +32,23 @@ export class RegisterComponent implements OnInit {
 
 
   register(){
-    this.registerForm.value.name = `${this.registerForm.value.firstName} ${this.registerForm.value.lastName}`;
-    this.userService.register(this.registerForm).subscribe((res:any)=>console.log(res))
+    if(this.registerForm.valid){
+      this.sendingRequest = true
+      this.registerForm.value.name = `${this.registerForm.value.firstName} ${this.registerForm.value.lastName}`;
+      this.userService.register(this.registerForm).subscribe({
+        complete: () => {
+          setTimeout(() => {
+            this.sendingRequest = false;
+            this.registerForm.reset()
+            setTimeout(()=>this.showRegisterAlert = true,1000)
+            setTimeout(()=>this.showRegisterAlert = false,5000)
+          }, 5000);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      })
+    }
   }
 
 }
