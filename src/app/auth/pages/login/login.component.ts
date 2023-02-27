@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
         complete:()=>{
           setTimeout(()=>{
             this.sendingRequest = false
-            this.userService.checkToken()
-          },5000)
+            this.userService.successLogin()
+          },3000)
         }
       })
     }
