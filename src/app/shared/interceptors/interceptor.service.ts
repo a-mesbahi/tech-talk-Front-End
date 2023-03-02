@@ -1,3 +1,4 @@
+import { UserServiceService } from './../../auth/service/user-service.service';
 import { Injectable } from '@angular/core';
 import {
   HttpEvent,
@@ -12,17 +13,20 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class InterceptorService implements HttpInterceptor {
-  constructor() {}
+  constructor(private userService:UserServiceService) {}
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (!req.url.includes('login') || !req.url.includes('podcaster/register')) {
+    var headers;
+      if (!req.url.includes('login') && !req.url.includes('podcaster/register')) {
+        headers = req.headers.set('Authorization', `Bearer ${this.userService.getTheToken()}`);  
+      }  
       req = req.clone({
         url: environment.serverUrl + req.url,
-        // headers: req.headers.set('Authorization', 'Bearer '),
+        headers: headers,
       });
-    }
+    
     return next.handle(req);
   }
 }

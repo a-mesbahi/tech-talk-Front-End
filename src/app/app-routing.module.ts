@@ -11,11 +11,11 @@ const routes: Routes = [
   {path:'auth',children:Auth_ROUTES},
   {path:'admin',children:ADMIN_ROUTES},
   {path:'manager',children:MANAGER_ROUTES},
-  {path:'podcatser',children:PODCASTER_ROUTES},
+  {path:'podcaster',children:PODCASTER_ROUTES},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -12,13 +12,15 @@ import {AdminModule} from "./admin/admin.module";
 import { AuthModule } from './auth/auth.module';
 import { InterceptorService } from './shared/interceptors/interceptor.service';
 import { EnvPipe } from './shared/pipes/env.pipe';
-
+import { HomeComponent } from './podcaster/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    EnvPipe
+    EnvPipe,
+    HomeComponent,
+    
   ],
   imports: [
     HttpClientModule,

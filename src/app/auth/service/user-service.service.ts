@@ -49,7 +49,7 @@ export class UserServiceService {
     console.log(position)
     switch (position) {
       case "PODCASTER":
-        this.router.navigateByUrl("/podcaster")
+        this.router.navigateByUrl("/podcaster/add/podcast")
         break;
       default:
         this.router.navigateByUrl("auth/login")
