@@ -6,6 +6,7 @@ import { HOME_ROUTES } from './home/home-routing.module';
 import { MANAGER_ROUTES } from './manager/manager-routing.module';
 import { PODCASTER_ROUTES } from './podcaster/podcaster-routing.module';
 
+
 const routes: Routes = [
   {path:'',children:HOME_ROUTES},
   {path:'auth',children:Auth_ROUTES},

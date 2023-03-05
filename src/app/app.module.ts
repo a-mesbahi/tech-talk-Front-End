@@ -30,7 +30,7 @@ import { HomeComponent } from './podcaster/home/home.component';
     ManagerModule,
     AdminModule,
     AuthModule,
-    PodcasterModule
+    PodcasterModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
   bootstrap: [AppComponent]

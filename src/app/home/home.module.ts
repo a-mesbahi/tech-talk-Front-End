@@ -18,7 +18,7 @@ import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.co
     AudioComponent,
     PodcastInterfaceComponent,
     TimeConversionPipe,
-    PodcatDetailsComponent
+    PodcatDetailsComponent,
   ],
   imports: [
     CommonModule,

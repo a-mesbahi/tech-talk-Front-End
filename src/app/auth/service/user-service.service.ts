@@ -58,4 +58,11 @@ export class UserServiceService {
 
   }
 
+  isAuthenticated():boolean{
+    if(this.TOKEN!=null){
+      return true;
+    }
+    return false;
+  }
+
 }

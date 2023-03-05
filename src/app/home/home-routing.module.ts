@@ -10,7 +10,6 @@ export const HOME_ROUTES: Routes = [
   {path:'contact',component:ContactComponent},
   {path:'details',component:PodcatDetailsComponent},
   {path:'discover',component:DiscoverComponent},
-  
   // { path: '**', pathMatch: 'full', 
   //   component: NotFoundComponent },
 ];
