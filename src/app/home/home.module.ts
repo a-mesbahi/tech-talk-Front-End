@@ -8,6 +8,7 @@ import { PodcastInterfaceComponent } from './layouts/podcast-interface/podcast-i
 import { TimeConversionPipe } from './pipes/time-conversion.pipe';
 import { AudioComponent } from './layouts/audio/audio.component';
 import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -19,9 +20,11 @@ import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.co
     PodcastInterfaceComponent,
     TimeConversionPipe,
     PodcatDetailsComponent,
+    
   ],
   imports: [
     CommonModule,
+    RouterModule
   ]
 })
 export class HomeModule { }

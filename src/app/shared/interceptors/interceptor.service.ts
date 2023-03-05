@@ -19,7 +19,7 @@ export class InterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     var headers;
-      if (!req.url.includes('login') && !req.url.includes('podcaster/register')) {
+      if (!req.url.includes('login') && !req.url.includes('podcaster/register') && !req.url.includes('podcasts?page=')) {
         headers = req.headers.set('Authorization', `Bearer ${this.userService.getTheToken()}`);  
       }  
       req = req.clone({
