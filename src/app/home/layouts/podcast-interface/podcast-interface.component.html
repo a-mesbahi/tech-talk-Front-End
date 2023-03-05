@@ -21,14 +21,11 @@
     </strong>
 
     <h3 class="mt-4 text-lg font-medium sm:text-xl">
-        <a href="" class="hover:underline"> Some Interesting Podcast Title </a>
+        <a [routerLink]="['details',podcast.id]" routerLinkActive="router-link-active" class="hover:underline"> {{podcast.title}}</a>
     </h3>
 
     <p class="mt-1 text-sm text-gray-700">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam nulla
-        amet voluptatum sit rerum, atque, quo culpa ut necessitatibus eius
-        suscipit eum accusamus, aperiam voluptas exercitationem facere aliquid
-        fuga. Sint.
+        {{podcast.description}}
     </p>
 
     <div class="mt-4 sm:flex sm:items-center sm:gap-2">
@@ -54,9 +51,7 @@
         <span class="hidden sm:block" aria-hidden="true">&middot;</span>
 
         <p class="mt-2 text-xs font-medium text-gray-500 sm:mt-0">
-        Featuring <a href="#" class="underline hover:text-gray-700">Barry</a>,
-        <a href="#" class="underline hover:text-gray-700">Sandra</a> and
-        <a href="#" class="underline hover:text-gray-700">August</a>
+        Featuring <a href="#" class="underline hover:text-gray-700">{{podcast.podcaster_name}}</a>,
         </p>
     </div>
     </div>
