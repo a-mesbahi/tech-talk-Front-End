@@ -50,11 +50,10 @@
             <h1 class="uppercase font-extrabold text-3xl">discussions on the backend </h1>
             <p class="w-2/3 font-semibold ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur amet at ex, culpa, quo minima perspiciatis, natus rerum earum accusamus maiores enim alias veniam perferendis! Quod recusandae veritatis iste omnis.</p>
             <div class="border-t-2 mt-7">
-                <app-podcast-interface></app-podcast-interface>
-                <app-podcast-interface></app-podcast-interface>
-                <app-podcast-interface></app-podcast-interface>
-                <app-podcast-interface></app-podcast-interface>
-        </div>
+                <div *ngFor="let podcast of recentPodcasts">
+                    <app-podcast-interface [podcast]="podcast"></app-podcast-interface>
+                </div>
+            </div>
     </div>
 
 
