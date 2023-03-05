@@ -8,7 +8,7 @@ import { DiscoverComponent } from './pages/discover/discover.component';
 export const HOME_ROUTES: Routes = [
   {path:'',component:HomeComponent},
   {path:'contact',component:ContactComponent},
-  {path:'details',component:PodcatDetailsComponent},
+  {path:'details/:id',component:PodcatDetailsComponent},
   {path:'discover',component:DiscoverComponent},
   // { path: '**', pathMatch: 'full', 
   //   component: NotFoundComponent },

@@ -17,9 +17,7 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
   @Input() audioTitleColor: any;
   @Input() volumeSliderColor: any;
   @Input() timeSliderColor: any;
-  @Input() audioList = [
-    "https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/075cfd15-3da1-4159-822c-e2bf5d5d290e.mp3"
-  ];
+  @Input() audioList:string[] = [];
   @Input() next = true;
   @Input() previous = true;
   @Input() shuffle = true;
@@ -33,11 +31,13 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
   @Input() activeRepeatButtonColor = "black";
   @Input() volumeButtonColor = "black";
   @Input() muteButtonColor = "black";
+  @Input() audio!:string;
   @Output() nextEvent = new EventEmitter();
   @Output() previousEvent = new EventEmitter();
   @Output() repeatEvent = new EventEmitter();
   @Output() shuffleEvent = new EventEmitter();
   @Output() seekEvent = new EventEmitter();
+
 
   selectedAudio: any;
   currentAudioIndex = 0;
@@ -51,6 +51,7 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
   }
 
   ngOnInit() {
+    this.audioList.push(`https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/`+this.audio)
     this.options();
     this.initiateAudioPlayer();
     this.isAudioEnded.subscribe(data => {

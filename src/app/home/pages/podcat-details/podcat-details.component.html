@@ -1,27 +1,27 @@
-<div class="w-full grid md:grid-cols-3 md:mt-9" style="height: 85vh;">
+<div *ngIf="podcast!=null" class="w-full grid md:grid-cols-3 md:mt-9" style="height: 85vh;">
     <div class="md:col-span-1 grid md:grid-rows-6">
         <div class="w-full row-span-3 flex justify-center items-center">
-            <img src="../../assets/Techtalk.png" class="w-5/6 h-5/6" style="filter: hue-rotate(250deg);" alt="">
+            <img [src]="'https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/'+this.podcast.podcaster.profilePic" class="w-5/6 h-5/6" style="filter: hue-rotate(250deg);" alt="">
         </div>
         <div class=" row-span-2 flex flex-col items-center font-semibold text-clip space-y-4">
             <p class="w-5/6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ea quia ullam voluptates quibusdam doloremque, vitae aperiam culpa ab autem
+                {{ podcast.description }}
             </p>
-            <p class="w-5/6">
+            <!-- <p class="w-5/6">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, incidunt saepe dignissimos
-            </p>
+            </p> -->
         </div>
         <div class=" ">
             <div class="w-5/6 m-auto">
                 <h1>HOSTED BY</h1>
-                <h1 class="text-lg font-bold">AMINE MESBAHI</h1>
+                <h1 class="text-lg font-bold uppercase">{{ podcast.podcaster_name }}</h1>
             </div>
         </div>
     </div>
     <div class="grid grid-rows-2 col-span-2 capitalize ">
         <div class="p-10 flex flex-col justify-around">
             <h1 class="font-bold md:text-lg">The Ringer</h1>
-            <h1 class="font-black md:text-8xl">Big ballers asia podcast</h1>
+            <h1 class="font-black md:text-8xl">{{podcast.title}}</h1>
             <div class="w-max flex">
                 <button class="inline-flex capitalize  md:p-4 md:px-7 bg-gray-900 text-white md:font-bold text-sm mr-3 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -40,13 +40,14 @@
                 </div>
                 <div class="col-span-2 grid grid-rows-2 ">
                     <div class=" p-3">
-                        <h1 class="capitalize font-bold text-3xl">podcast title and i dont know what </h1>
+                        <h1 class="capitalize font-bold text-3xl">{{ podcast.title }} </h1>
                         <p class="font-semibold text-sm text-gray-500">Jan 15th, 2023 - 3 min</p>
                         <p class="text-base font-semibold text-gray-800 text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore illo dolorem tempore sequi nesciunt! Impedit tenetur consequuntur placeat, repellat perferendis quidem esse debitis, necessitatibus atque non laboriosam exercitationem dicta voluptatibus.</p>
+                            {{podcast.description}}
+                        </p>
                     </div>
                     <div class="pt-2 pl-3">
-                        <app-audio></app-audio>
+                        <app-audio [audio]="podcast.audio"></app-audio>
                     </div>
                 </div>
         </div>

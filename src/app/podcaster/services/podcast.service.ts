@@ -27,4 +27,8 @@ export class PodcastService {
     return this.httpClient.get<Podcast[]>(`${this.PODCAST_ENDPOINT}?page=${page}&size=${size}`)
   }
 
+  getSinglePodcast(id:Number):Observable<Podcast>{
+    return this.httpClient.get<Podcast>(`${this.PODCAST_ENDPOINT}/${id}`)
+  }
+
 }
