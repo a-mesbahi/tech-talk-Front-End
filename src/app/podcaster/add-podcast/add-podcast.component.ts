@@ -19,7 +19,7 @@ export class AddPodcastComponent implements OnInit {
   ngOnInit(): void {
     this.addPodcastForm = this.formbuilder.group({
       "title":this.formbuilder.control(''),
-      "desciption":this.formbuilder.control(''),
+      "description":this.formbuilder.control(''),
       "FileAudio":null,
       "picture":null,
     })
