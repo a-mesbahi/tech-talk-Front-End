@@ -1,4 +1,4 @@
-interface Podcaster{
+export interface Podcaster{
     id: number|null,
     email: string|null,
     name: string|null,
