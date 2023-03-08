@@ -4,6 +4,7 @@ import { Podcast } from './../../../podcaster/model/Podcast.model';
 import { PodcastService } from './../../../podcaster/services/podcast.service';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -25,6 +26,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class DiscoverComponent implements OnInit {
+  url:string = environment.fireBaseUrl
   recentPodcasts!:Podcast[];
   podcastSearchedName!:string;
   podcatserGetted!:Podcaster[];

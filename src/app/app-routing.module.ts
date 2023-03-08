@@ -6,17 +6,16 @@ import { HOME_ROUTES } from './home/home-routing.module';
 import { MANAGER_ROUTES } from './manager/manager-routing.module';
 import { PODCASTER_ROUTES } from './podcaster/podcaster-routing.module';
 
-
 const routes: Routes = [
-  {path:'',children:HOME_ROUTES},
-  {path:'auth',children:Auth_ROUTES},
-  {path:'admin',children:ADMIN_ROUTES},
-  {path:'manager',children:MANAGER_ROUTES},
-  {path:'podcaster',children:PODCASTER_ROUTES},
+  { path: '', children: HOME_ROUTES },
+  { path: 'auth', children: Auth_ROUTES },
+  { path: 'admin', children: ADMIN_ROUTES },
+  { path: 'manager', children: MANAGER_ROUTES },
+  { path: 'podcaster', children: PODCASTER_ROUTES },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ useHash: true })],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

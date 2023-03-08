@@ -9,7 +9,7 @@ export class AudioPlyerOptions {
   totalAudioLength: any;
   currentAudioTime = 0;
   isAudioLoaded: boolean = false;
-  isAudioPlaying!: boolean;
+  isAudioPlaying: boolean = false;
   isRepeat: boolean = false;
   audioVolume = 100;
   isAudioEnded = new Subject;

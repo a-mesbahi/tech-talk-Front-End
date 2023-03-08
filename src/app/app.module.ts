@@ -13,6 +13,8 @@ import { AuthModule } from './auth/auth.module';
 import { InterceptorService } from './shared/interceptors/interceptor.service';
 import { EnvPipe } from './shared/pipes/env.pipe';
 import { HomeComponent } from './podcaster/home/home.component';
+import { PlayBackAudioComponent } from './home/layouts/play-back-audio/play-back-audio.component';
+import { TimeConversionPipe } from './shared/pipes/time-conversion.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HomeComponent } from './podcaster/home/home.component';
     HeaderComponent,
     EnvPipe,
     HomeComponent,
-    
+    TimeConversionPipe,
+    PlayBackAudioComponent
   ],
   imports: [
     HttpClientModule,
@@ -33,6 +36,6 @@ import { HomeComponent } from './podcaster/home/home.component';
     PodcasterModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

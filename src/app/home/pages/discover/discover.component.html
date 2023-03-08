@@ -54,7 +54,7 @@
         <div *ngIf="responseReceive && podcatserGetted.length" class="grid grid-cols-4 gap-2 pt-3">
             <a *ngFor="let podcaster of podcatserGetted"  href="#" class="relative border  block group h-56">
                 <img
-                    [src]="'https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/'+podcaster.profilePic"
+                    [src]="url+podcaster.profilePic"
                     alt=""
                     class="h-full object-cover transition duration-500 group-hover:opacity-90 "
                 />

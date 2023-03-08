@@ -8,11 +8,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscoverComponent } from './pages/discover/discover.component';
 import { PodcastInterfaceComponent } from './layouts/podcast-interface/podcast-interface.component';
-import { TimeConversionPipe } from './pipes/time-conversion.pipe';
-import { AudioComponent } from './layouts/audio/audio.component';
 import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.component';
 import {RouterModule} from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AudioComponent } from './layouts/audio/audio.component';
+import { TimeConversionPipe } from './pipes/time-conversion.pipe';
+
 
 
 @NgModule({
@@ -20,10 +21,10 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     HomeComponent,
     ContactComponent,
     DiscoverComponent,
-    AudioComponent,
     PodcastInterfaceComponent,
-    TimeConversionPipe,
     PodcatDetailsComponent,
+    AudioComponent,
+    TimeConversionPipe
   ],
   imports: [
     BrowserAnimationsModule,

@@ -6,10 +6,10 @@ import { PodcatDetailsComponent } from './pages/podcat-details/podcat-details.co
 import { DiscoverComponent } from './pages/discover/discover.component';
 
 export const HOME_ROUTES: Routes = [
-  {path:'',component:HomeComponent},
-  {path:'contact',component:ContactComponent},
-  {path:'details/:id',component:PodcatDetailsComponent},
-  {path:'discover',component:DiscoverComponent},
-  // { path: '**', pathMatch: 'full', 
+  { path: '', component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'details/:id', component: PodcatDetailsComponent },
+  { path: 'discover', component: DiscoverComponent },
+  // { path: '**', pathMatch: 'full',
   //   component: NotFoundComponent },
 ];

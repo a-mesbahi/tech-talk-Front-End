@@ -3,3 +3,7 @@
 <div [ngClass]="{'w-2/3 h-max m-auto ':!isAuthPage}">
     <router-outlet></router-outlet>
 </div>
+
+<div  *ngIf="showThePlayBack" class="w-2/3 h-max m-auto">
+    <app-play-back-audio></app-play-back-audio>
+</div>

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { PlayBackAudioService } from '../../services/play-back-audio.service';
 import { AudioPlyerOptions } from './audioPlayer';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -46,46 +48,20 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
   isShuffle = false;
   volumeBeforeMute: any;
 
-  constructor() {
+  constructor(private playBackAudioService:PlayBackAudioService) {
     super();
   }
 
   ngOnInit() {
-    this.audioList.push(`https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/`+this.audio)
+    this.audioList.push(environment.fireBaseUrl+this.audio)
     this.options();
     this.initiateAudioPlayer();
     this.isAudioEnded.subscribe(data => {
-      if (!this.isRepeat && this.audioList.length > 0) {
-        this.nextAudio();
-      }
+      this.isAudioPlaying=false
     })
   }
 
-  nextAudio() {
-    if (this.audioList.length - 1 != this.currentAudioIndex) {
-      this.currentAudioIndex += 1;
-      this.selectedAudio = this.audioList[this.currentAudioIndex];
-      this.getAudioLength();
-      if (this.isAudioPlaying) {
-        this.play();
-      }
-      this.nextEvent.emit();
-    }else{
-      this.pause();
-    }
-  }
-
-  previousAudio() {
-    if (this.currentAudioIndex != 0) {
-      this.currentAudioIndex -= 1;
-      this.selectedAudio = this.audioList[this.currentAudioIndex];
-      this.getAudioLength();
-      if (this.isAudioPlaying) {
-        this.play();
-      }
-      this.previousEvent.emit();
-    }
-  }
+  
 
   seekAudio(seekAudioValue: any) {
     if (this.audioVolume != 0) {
@@ -102,15 +78,6 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
     this.repeatEvent.emit();
   }
 
-/*   shuffleAudio() {
-    this.isShuffle = !this.isShuffle;
-    if (this.isShuffle) {
-    let randomItem = Math.floor(Math.random() * this.audioList.length);
-    console.log(randomItem);
-
-    }
-    this.shuffleEvent.emit();
-  } */
 
   volumeChange(volume:any) {
     this.audioPlayer.nativeElement.volume = volume.target.value / 100;
@@ -133,6 +100,16 @@ export class AudioComponent extends AudioPlyerOptions implements OnInit {
       this.selectedAudio = this.audioList[this.currentAudioIndex];
     }
   }
+
+
+  ngOnDestroy(): void {
+    this.playBackAudioService.toShowThePlayBack(true)
+    this.playBackAudioService.audioCurrentTime = this.audioPlayer.nativeElement.currentTime 
+    this.playBackAudioService.isAudioPlaying = this.isAudioPlaying
+  }
+
+
+
 }
 
 

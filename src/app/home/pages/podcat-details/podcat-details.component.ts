@@ -2,6 +2,8 @@ import { Podcast } from './../../../podcaster/model/Podcast.model';
 import { PodcastService } from './../../../podcaster/services/podcast.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PlayBackAudioService } from '../../services/play-back-audio.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,7 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 export class PodcatDetailsComponent implements OnInit {
   id!:number;
   podcast!:Podcast;
-  constructor(private activatedRoute:ActivatedRoute, private podcastService:PodcastService) { }
+  url:string=environment.fireBaseUrl
+
+  constructor(private activatedRoute:ActivatedRoute, private podcastService:PodcastService,private playBackAudioService:PlayBackAudioService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -26,5 +30,10 @@ export class PodcatDetailsComponent implements OnInit {
     })
 
   }
+
+  ngOnDestroy(): void {
+    this.playBackAudioService.pocast = this.podcast
+  }
+
 
 }
