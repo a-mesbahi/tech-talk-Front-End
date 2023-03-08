@@ -23,6 +23,7 @@ export class InterceptorService implements HttpInterceptor {
         !req.url.includes('login') &&
         !req.url.includes('podcaster/register') &&
         !req.url.includes('podcasts?page=') && 
+        !req.url.includes('podcaster?name=') && 
         !req.url.includes('podcasts/')) {
         headers = req.headers.set('Authorization', `Bearer ${this.userService.getTheToken()}`);  
       }  

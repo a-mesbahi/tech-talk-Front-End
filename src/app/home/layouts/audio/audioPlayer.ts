@@ -25,7 +25,7 @@ export class AudioPlyerOptions {
   options(): void {
     //emit event when playing audio
     this.audioPlayer.nativeElement.addEventListener('playing', () => {
-    });
+  });
 
     //emit when intial loading of audio
     this.audioPlayer.nativeElement.addEventListener('loadeddata', () => {
