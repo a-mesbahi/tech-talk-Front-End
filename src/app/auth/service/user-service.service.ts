@@ -51,6 +51,9 @@ export class UserServiceService {
       case "PODCASTER":
         this.router.navigateByUrl("/podcaster/add/podcast")
         break;
+      case "ADMIN":
+        this.router.navigateByUrl("/admin")
+        break;
       default:
         this.router.navigateByUrl("auth/login")
         break;
@@ -59,10 +62,7 @@ export class UserServiceService {
   }
 
   isAuthenticated():boolean{
-    if(this.TOKEN!=null){
-      return true;
-    }
-    return false;
+    return this.TOKEN!=null;
   }
 
 }
