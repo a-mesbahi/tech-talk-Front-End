@@ -1,6 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -22,9 +24,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     PodcastInterfaceComponent,
     TimeConversionPipe,
     PodcatDetailsComponent,
-    
   ],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     RouterModule,
     FormsModule,

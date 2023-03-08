@@ -3,12 +3,26 @@ import { Podcaster } from './../../../podcaster/model/Podcaster.model';
 import { Podcast } from './../../../podcaster/model/Podcast.model';
 import { PodcastService } from './../../../podcaster/services/podcast.service';
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 
 @Component({
   selector: 'app-discover',
   templateUrl: './discover.component.html',
-  styleUrls: ['./discover.component.scss']
+  styleUrls: ['./discover.component.scss'],
+  animations:[
+    trigger('onSearch',[
+      state('default',style({
+        height:'0px',
+      })),
+      state('dataArrived',style({
+        height:'*'
+      })),
+      transition('default <=> dataArrived',[
+        animate('0.5s')
+      ])
+    ])
+  ]
 })
 export class DiscoverComponent implements OnInit {
   recentPodcasts!:Podcast[];
@@ -35,7 +49,7 @@ export class DiscoverComponent implements OnInit {
   }
 
   searchPodcaster(){
-    if(this.podcastSearchedName.length>0){
+    if(this.podcastSearchedName.replace(/\s/g, '').length>0){
       this.podcatserGetted = []     
       this.sendingRequest = true;
       this.podcasterService.getPodcastersSearched(this.podcastSearchedName).subscribe({
@@ -58,8 +72,13 @@ export class DiscoverComponent implements OnInit {
       this.sendingRequest = true;
       setTimeout(()=>{
         this.sendingRequest = false;
+        if(this.podcatserGetted.length==0){
+          this.responseReceive = false
+        }
       },3000)
     }
   }
+
+
 
 }

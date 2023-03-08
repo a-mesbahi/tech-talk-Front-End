@@ -32,7 +32,7 @@
         </div>
         </div>
     </div>
-    <div  class="h-max ">
+    <div [@onSearch]="sendingRequest || responseReceive ? 'dataArrived':'default' "  >
         <div *ngIf="sendingRequest" class="grid grid-cols-4 gap-2 pt-3 ">
             <div class="h-56 border flex flex-col justify-between p-2 ">
                 <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
@@ -51,7 +51,7 @@
                 <ngx-skeleton-loader count="2" appearance="line" animation="pulse"></ngx-skeleton-loader>
             </div>
         </div>
-        <div *ngIf="responseReceive" class="grid grid-cols-4 gap-2 pt-3">
+        <div *ngIf="responseReceive && podcatserGetted.length" class="grid grid-cols-4 gap-2 pt-3">
             <a *ngFor="let podcaster of podcatserGetted"  href="#" class="relative border  block group h-56">
                 <img
                     [src]="'https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/'+podcaster.profilePic"
@@ -64,7 +64,9 @@
                 </div>
             </a>
         </div>
-
+        <div *ngIf="responseReceive && podcatserGetted.length==0 && !sendingRequest" >
+            no data founded
+        </div>
     </div>
 </div>
 
