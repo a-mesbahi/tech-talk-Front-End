@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(e=>{
       if(e instanceof NavigationEnd){
         console.log(e.url.toString())
-        this.isAuthPage =  e.url.toString().includes('auth') || e.url.toString().includes('manager') ;
+        this.isAuthPage =  e.url.toString().includes('auth') || e.url.toString().includes('manager') || e.url.toString().includes("admin")   ;
       }
     })
   }
