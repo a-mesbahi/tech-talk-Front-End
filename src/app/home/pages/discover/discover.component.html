@@ -16,26 +16,56 @@
 
 
 
-<div class="mx-auto w-4/5 mt-10 mb-16 border p-6 ">
+<div class="mx-auto w-3/4  mt-10 mb-16 border p-6 ">
     <div>
         <div class="text-center">
         <h2 class="mt-2 text-lg font-medium text-gray-900">Search For Your Best Podcaster</h2>
         <p class="mt-1 text-sm text-gray-500">You haven’t added any team members to your project yet.</p>
         </div>
-        <form class="mt-6 sm:flex sm:items-center" action="#">
+        <div class="mt-6 sm:flex sm:items-center" >
         <label for="emails" class="sr-only">Email addresses</label>
         <div class="relative rounded-md shadow-sm sm:min-w-0 sm:flex-1">
-            <input type="text" name="emails" id="emails" class="focus:ring-indigo-500 border focus:border-indigo-500 block w-full pr-32 sm:text-sm border-gray-300 p-4" placeholder="Enter a podcaster ">
+            <input type="text"  (keyup)="searchPodcaster()"  [(ngModel)]="podcastSearchedName" name="emails" id="emails" class="focus:ring-indigo-500 border focus:border-indigo-500 block w-full pr-32 sm:text-sm border-gray-300 p-4" placeholder="Enter a podcaster ">
             <div class="absolute inset-y-0 right-0 flex items-center">
             <span class="h-4 w-px bg-gray-200" aria-hidden="true"></span>
             </div>
         </div>
-        <div class="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
-            <button type="submit" class="block w-full text-center px-7 py-4 border border-transparent text-sm font-medium shadow-sm text-white bg-blue-900 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Search</button>
         </div>
-        </form>
     </div>
-    
+    <div  class="h-max ">
+        <div *ngIf="sendingRequest" class="grid grid-cols-4 gap-2 pt-3 ">
+            <div class="h-56 border flex flex-col justify-between p-2 ">
+                <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2" appearance="line" animation="pulse"></ngx-skeleton-loader>
+            </div>
+            <div class="h-56 border flex flex-col justify-between p-2 ">
+                <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2" appearance="line" animation="pulse"></ngx-skeleton-loader>
+            </div>
+            <div class="h-56 border flex flex-col justify-between p-2 ">
+                <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2" appearance="line" animation="pulse"></ngx-skeleton-loader>
+            </div>
+            <div class="h-56 border flex flex-col justify-between p-2 ">
+                <ngx-skeleton-loader appearance="circle"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2" appearance="line" animation="pulse"></ngx-skeleton-loader>
+            </div>
+        </div>
+        <div *ngIf="responseReceive" class="grid grid-cols-4 gap-2 pt-3">
+            <a *ngFor="let podcaster of podcatserGetted"  href="#" class="relative border  block group h-56">
+                <img
+                    [src]="'https://storage.cloud.google.com/tech-talk-b9bba.appspot.com/'+podcaster.profilePic"
+                    alt=""
+                    class="h-full object-cover transition duration-500 group-hover:opacity-90 "
+                />
+                
+                <div class="absolute inset-0 flex flex-col items-start justify-end p-6">
+                    <h3 class="text-xl font-medium text-white">{{podcaster.name}}</h3>
+                </div>
+            </a>
+        </div>
+
+    </div>
 </div>
 
 

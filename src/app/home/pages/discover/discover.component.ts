@@ -1,6 +1,9 @@
+import { PodcasterService } from './../../../podcaster/services/podcaster.service';
+import { Podcaster } from './../../../podcaster/model/Podcaster.model';
 import { Podcast } from './../../../podcaster/model/Podcast.model';
 import { PodcastService } from './../../../podcaster/services/podcast.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-discover',
@@ -9,13 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscoverComponent implements OnInit {
   recentPodcasts!:Podcast[];
-  constructor(private podcastService:PodcastService) { }
+  podcastSearchedName!:string;
+  podcatserGetted!:Podcaster[];
+  sendingRequest:boolean = false;
+  responseReceive:boolean = false; 
+
+  constructor(private podcastService:PodcastService,private podcasterService:PodcasterService) { }
 
   ngOnInit(): void {
     this.getRecentPordcasts()
   }
-
-
 
   getRecentPordcasts(){
     this.podcastService.getPodcasts(0,5).subscribe({
@@ -26,6 +32,34 @@ export class DiscoverComponent implements OnInit {
         console.log(err)
       },
     })
+  }
+
+  searchPodcaster(){
+    if(this.podcastSearchedName.length>0){
+      this.podcatserGetted = []     
+      this.sendingRequest = true;
+      this.podcasterService.getPodcastersSearched(this.podcastSearchedName).subscribe({
+        next:(res)=>{
+          setTimeout(()=>{
+            this.podcatserGetted = res
+            this.sendingRequest=false
+            this.responseReceive=true
+          },2000)
+        },
+        error:()=>{
+
+        },
+        complete:()=>{
+
+        }
+      })
+    }else{
+      this.podcatserGetted = []
+      this.sendingRequest = true;
+      setTimeout(()=>{
+        this.sendingRequest = false;
+      },3000)
+    }
   }
 
 }
