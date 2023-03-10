@@ -61,7 +61,7 @@ export class AudioPlyerOptions {
     setTimeout(() => {
       this.audioPlayer.nativeElement.play();
       this.playEvent.emit();
-     }, 0);
+    }, 0);
   }
 
   pause() {
@@ -71,7 +71,7 @@ export class AudioPlyerOptions {
     setTimeout(() => {
       this.audioPlayer.nativeElement.pause();
       this.pauseEvent.emit();
-     }, 0);
+    }, 0);
   }
 
   getAudioLength() {

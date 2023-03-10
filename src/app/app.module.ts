@@ -15,6 +15,7 @@ import { EnvPipe } from './shared/pipes/env.pipe';
 import { HomeComponent } from './podcaster/home/home.component';
 import { PlayBackAudioComponent } from './home/layouts/play-back-audio/play-back-audio.component';
 import { TimeConversionPipe } from './shared/pipes/time-conversion.pipe';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TimeConversionPipe } from './shared/pipes/time-conversion.pipe';
     EnvPipe,
     HomeComponent,
     TimeConversionPipe,
-    PlayBackAudioComponent
+    PlayBackAudioComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,

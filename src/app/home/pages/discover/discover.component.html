@@ -16,7 +16,7 @@
 
 
 
-<div class="mx-auto w-3/4  mt-10 mb-16 border p-6 ">
+<div class="mx-auto w-3/4   mt-10 mb-16 border p-6 ">
     <div>
         <div class="text-center">
         <h2 class="mt-2 text-lg font-medium text-gray-900">Search For Your Best Podcaster</h2>
@@ -68,25 +68,9 @@
             no data founded
         </div>
     </div>
-</div>
 
 
-
-
-
-
-
-
-    <div class="w-full h-56 mt-11">
-        <div>
-            <h1 class="uppercase font-extrabold text-3xl">discussions on the backend </h1>
-            <p class="w-2/3 font-semibold ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur amet at ex, culpa, quo minima perspiciatis, natus rerum earum accusamus maiores enim alias veniam perferendis! Quod recusandae veritatis iste omnis.</p>
-            <div class="border-t-2 mt-7">
-                <div *ngFor="let podcast of recentPodcasts">
-                    <app-podcast-interface [podcast]="podcast"></app-podcast-interface>
-                </div>
-            </div>
-    </div>
+    
 
 
     
@@ -94,3 +78,22 @@
 
 
 </div>
+
+</div>
+
+
+<div class="w-full h-max mt-11">
+    <div>
+        <h1 class="uppercase font-extrabold text-3xl">discussions on the backend </h1>
+        <p class="w-2/3 font-semibold ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur amet at ex, culpa, quo minima perspiciatis, natus rerum earum accusamus maiores enim alias veniam perferendis! Quod recusandae veritatis iste omnis.</p>
+        <div class="border-t-2 mt-7">
+            <div *ngFor="let podcast of recentPodcasts">
+                <app-podcast-interface [podcast]="podcast"></app-podcast-interface>
+            </div>
+        </div>
+</div>
+
+
+
+
+
