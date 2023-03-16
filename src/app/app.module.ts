@@ -16,6 +16,8 @@ import { HomeComponent } from './podcaster/home/home.component';
 import { PlayBackAudioComponent } from './home/layouts/play-back-audio/play-back-audio.component';
 import { TimeConversionPipe } from './shared/pipes/time-conversion.pipe';
 import { FooterComponent } from './shared/footer/footer.component';
+import {HomeComponent as AdminHomeComponent } from './admin/pages/home/home.component'
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     HomeComponent,
     TimeConversionPipe,
     PlayBackAudioComponent,
-    FooterComponent
+    FooterComponent,
+    AdminHomeComponent
   ],
   imports: [
     HttpClientModule,

@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ManagersComponent } from './pages/managers/managers.component';
-import { HomeComponent } from './pages/home/home.component';
+import { PodcastersComponent } from './pages/podcasters/podcasters.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    ManagersComponent
+
+    ManagersComponent,
+    PodcastersComponent
   ],
   imports: [
     CommonModule,

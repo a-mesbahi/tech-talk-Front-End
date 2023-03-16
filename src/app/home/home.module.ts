@@ -13,6 +13,8 @@ import {RouterModule} from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AudioComponent } from './layouts/audio/audio.component';
 import { TimeConversionPipe } from './pipes/time-conversion.pipe';
+import { AboutComponent } from './pages/about/about.component';
+import { PodcasterDetailsComponent } from './pages/podcaster-details/podcaster-details.component';
 
 
 
@@ -24,7 +26,9 @@ import { TimeConversionPipe } from './pipes/time-conversion.pipe';
     PodcastInterfaceComponent,
     PodcatDetailsComponent,
     AudioComponent,
-    TimeConversionPipe
+    TimeConversionPipe,
+    AboutComponent,
+    PodcasterDetailsComponent
   ],
   imports: [
     BrowserAnimationsModule,
