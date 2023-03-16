@@ -30,21 +30,28 @@
     <div class="flex items-center">
         <div class="flex-shrink-0">
         </div>
-        <!-- <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+        <div *ngIf="isLoggedIn" class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
                 <a href="#" class="inline-flex items-center font-bold px-1 pt-1 text-sm text-indigo-700">Upgrade to Pro</a>
             
                 <div class="relative ml-3">
                     <div>
-                    <button type="button" class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <button (click)="openNavBar=!openNavBar" type="button" class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                         <span class="sr-only">Open user menu</span>
                         <div class="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
                             <h1 class="text-base font-bold">AM</h1>
                         </div>
                     </button>
+                    <div *ngIf="openNavBar" id="dropdown" class="z-10 absolute right-4 bg-white divide-y divide-gray-100 shadow w-44 ">
+                        <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton"> 
+                        <li>
+                            <span (click)="logout()" class="block px-4 py-2 cursor-pointer hover:bg-gray-100 ">Sign out</span>
+                        </li>
+                        </ul>
+                    </div>
                     </div>
                 </div>
-        </div> -->
-        <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
+        </div>
+        <div *ngIf="!isLoggedIn" class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
             <a routerLink="" class="inline-flex items-center font-bold px-1 pt-1 text-sm text-indigo-900">Login</a>
             <div class="relative ml-3">
                 <button class=" border border-blue-900 pl-4 pr-4 pt-2 pb-2 text-white bg-blue-900 hover:bg-transparent cursor-pointer hover:text-indigo-900">
@@ -57,7 +64,7 @@
     </div>
     
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div *ngIf="openNavBar"  class="md:hidden" id="mobile-menu">
+    <div  *ngIf="openNavBar"  class="md:hidden" id="mobile-menu">
         <div class="space-y-1 pt-2 pb-3">
         <a href="#" class="block border-l-4  py-2 pl-3 pr-4 text-base font-medium  sm:pl-5 sm:pr-6">Discover</a>
         <a href="#" class="block border-l-4  py-2 pl-3 pr-4 text-base font-medium  sm:pl-5 sm:pr-6">Blog</a>

@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next:(re:AuthenticatedMoule)=>{
           localStorage.setItem('token',JSON.stringify(re))
+          this.userService.isLoggedIn.next(true);
         },
         error:(err)=>console.log(err),
         complete:()=>{

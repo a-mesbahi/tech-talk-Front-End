@@ -1,3 +1,4 @@
+import { UserServiceService } from './../../auth/service/user-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -8,8 +9,9 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isAuthPage!:boolean;
-
-  constructor(private router : Router) { }
+  isLoggedIn:boolean = false;
+  openNavBar : boolean = false;
+  constructor(private router : Router,private userService:UserServiceService) { }
 
 
   ngOnInit(): void {
@@ -19,7 +21,15 @@ export class HeaderComponent implements OnInit {
         this.isAuthPage =  e.url.toString().includes('auth') || e.url.toString().includes('manager') || e.url.toString().includes("admin")   ;
       }
     })
+    this.userService.isLoggedIn.subscribe((data)=>{
+      this.isLoggedIn = data
+      console.log(data)
+    })
   }
 
-  openNavBar : boolean = false;
+  logout(){
+    this.userService.logout()
+  }
+
+  
 }

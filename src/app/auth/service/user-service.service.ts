@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { AuthenticatedMoule } from './../utils/authenticated.module';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -14,6 +14,7 @@ export class UserServiceService {
   private TOKEN!:AuthenticatedMoule;
   private LOGIN_ENDPOINT = "users-service/login";
   private PODCATSER_REGITSER_ENDPOINT = "users-service/podcaster/register";
+  isLoggedIn = new BehaviorSubject(false);
 
 
   constructor(private httpClient:HttpClient,private router:Router) { }
@@ -46,7 +47,6 @@ export class UserServiceService {
 
   successLogin(){
     let position:any = this.getThePosition();
-    console.log(position)
     switch (position) {
       case "PODCASTER":
         this.router.navigateByUrl("/podcaster/add/podcast")
@@ -63,6 +63,13 @@ export class UserServiceService {
 
   isAuthenticated():boolean{
     return this.TOKEN!=null;
+  }
+
+
+  logout(){
+    this.isLoggedIn.next(false);
+    localStorage.clear()
+    this.router.navigateByUrl('')
   }
 
 }

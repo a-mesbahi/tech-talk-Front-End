@@ -26,7 +26,10 @@ export class AppComponent implements OnInit {
         || e.url.toString().includes("admin");
       }
     });
-    this.userService.getTheToken()
+    if(this.userService.getTheToken()){
+      this.userService.isLoggedIn.next(true)
+    }
+
   };
   
   
