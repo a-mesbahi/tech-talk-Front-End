@@ -7,7 +7,6 @@ import { PodcastersComponent } from './pages/podcasters/podcasters.component';
 
 @NgModule({
   declarations: [
-
     ManagersComponent,
     PodcastersComponent
   ],

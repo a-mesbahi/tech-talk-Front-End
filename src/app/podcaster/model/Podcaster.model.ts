@@ -6,5 +6,5 @@ export interface Podcaster{
     bio: string|null,
     profilePic: string|null,
     linkedinProfile: string|null,
-    verified: boolean
+    verified: number
 }

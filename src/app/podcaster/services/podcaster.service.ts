@@ -14,4 +14,8 @@ export class PodcasterService {
     return this.httpClient.get<Podcaster[]>(`${this.PODCASTER_ENDPOINT}?name=${name}`)
   }
 
+  getAllpodcaster(page:number,size:number):Observable<Podcaster[]>{
+      return this.httpClient.get<Podcaster[]>(`${this.PODCASTER_ENDPOINT}s?page=${page}&size=${size}`)
+  }
+
 }
