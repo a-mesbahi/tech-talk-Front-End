@@ -6,7 +6,7 @@ import { PodcastersComponent } from './pages/podcasters/podcasters.component';
 
 export const ADMIN_ROUTES: Routes = [
   {path:"",component:HomeComponent,children:[
-    {path:'podcasters',component:PodcastersComponent},
+    {path:'',component:PodcastersComponent},
   ]},
   
 ];

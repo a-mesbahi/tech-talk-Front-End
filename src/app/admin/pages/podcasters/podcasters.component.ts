@@ -15,6 +15,9 @@ export class PodcastersComponent implements OnInit {
   podcasters!:Podcaster[];
   page:number = 0 ;
   size:number = 6;
+  openAction:boolean=false;
+
+  podcastersIdsForAction:number[] = [];
 
 
   ngOnInit(): void {
@@ -27,6 +30,16 @@ export class PodcastersComponent implements OnInit {
         
       }
     })
+  }
+
+
+
+  addPodcasterToAction(id:number|null){
+    if(id!=null ) {
+      if(this.podcastersIdsForAction.includes(id)) this.podcastersIdsForAction = this.podcastersIdsForAction.filter(item => item !== id)
+      else this.podcastersIdsForAction.push(id)
+    }
+    console.log(this.podcastersIdsForAction)
   }
 
 }
