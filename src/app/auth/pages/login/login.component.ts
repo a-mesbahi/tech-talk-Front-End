@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   toChoosePosition:boolean = false;
   position!:string;
   sendingRequest:boolean = false;
+  loginError:boolean=false;
 
   constructor(private formBuilder:FormBuilder,private userService:UserServiceService) { }
   
@@ -36,7 +37,12 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',JSON.stringify(re))
           this.userService.isLoggedIn.next(true);
         },
-        error:(err)=>console.log(err),
+        error:(err)=>{
+          setTimeout(()=>{
+            this.loginError=true
+            this.sendingRequest=false
+          },2000)
+        },
         complete:()=>{
           setTimeout(()=>{
             this.sendingRequest = false

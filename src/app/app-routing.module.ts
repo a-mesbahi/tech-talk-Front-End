@@ -10,7 +10,7 @@ import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 const routes: Routes = [
   { path: '', children: HOME_ROUTES },
   { path: 'auth', children: Auth_ROUTES },
-  { path: 'admin', children: ADMIN_ROUTES },
+  { path: 'admin', children: ADMIN_ROUTES,canActivate:[AuthGuardGuard] },
   { path: 'manager', children: MANAGER_ROUTES },
   { path: 'podcaster', children: PODCASTER_ROUTES, canActivate:[AuthGuardGuard]},
 ];
