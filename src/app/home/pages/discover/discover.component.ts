@@ -40,7 +40,7 @@ export class DiscoverComponent implements OnInit {
   }
 
   getRecentPordcasts(){
-    this.podcastService.getPodcasts(0,5).subscribe({
+    this.podcastService.getPodcasts(0,5,1).subscribe({
       next:(res)=>{
         this.recentPodcasts = res
       },

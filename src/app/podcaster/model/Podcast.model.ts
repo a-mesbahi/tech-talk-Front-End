@@ -8,4 +8,5 @@ export class Podcast{
     description!: string ;
     podcaster_name!: string ;
     podcaster!: Podcaster;
+    date!:string;
 }

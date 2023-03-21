@@ -14,33 +14,34 @@ import { InterceptorService } from './shared/interceptors/interceptor.service';
 import { EnvPipe } from './shared/pipes/env.pipe';
 import { HomeComponent } from './podcaster/home/home.component';
 import { PlayBackAudioComponent } from './home/layouts/play-back-audio/play-back-audio.component';
-import { TimeConversionPipe } from './shared/pipes/time-conversion.pipe';
+
 import { FooterComponent } from './shared/footer/footer.component';
 import {HomeComponent as AdminHomeComponent } from './admin/pages/home/home.component'
+import { SharedModule } from "./shared/shared.module";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    EnvPipe,
-    HomeComponent,
-    TimeConversionPipe,
-    PlayBackAudioComponent,
-    FooterComponent,
-    AdminHomeComponent
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    ManagerModule,
-    AdminModule,
-    AuthModule,
-    PodcasterModule,
-  ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        EnvPipe,
+        HomeComponent,
+        PlayBackAudioComponent,
+        FooterComponent,
+        AdminHomeComponent
+    ],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
+    bootstrap: [AppComponent],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        HomeModule,
+        ManagerModule,
+        AdminModule,
+        AuthModule,
+        PodcasterModule,
+        SharedModule
+    ]
 })
 export class AppModule { }
