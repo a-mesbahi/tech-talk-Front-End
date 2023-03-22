@@ -18,4 +18,14 @@ export class PodcasterService {
       return this.httpClient.get<Podcaster[]>(`${this.PODCASTER_ENDPOINT}s?page=${page}&size=${size}`)
   }
 
+  getPodcastersWithVerified(page:number,size:number,verified:number):Observable<Podcaster[]>{
+    return this.httpClient.get<Podcaster[]>(`${this.PODCASTER_ENDPOINT}s?page=${page}&size=${size}&verified=${verified}`)
+  }
+
+
+  updateVerefied(newVerified:number, ids:number[]){
+    return this.httpClient.put(`${this.PODCASTER_ENDPOINT}s`,{
+      "newVerified": newVerified,"ids": ids})
+  }
+
 }
