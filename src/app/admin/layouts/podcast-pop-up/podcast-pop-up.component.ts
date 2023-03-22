@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PodcastService } from './../../../podcaster/services/podcast.service';
+import { Podcast } from 'src/app/podcaster/model/Podcast.model';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-podcast-pop-up',
@@ -7,10 +9,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class PodcastPopUpComponent implements OnInit {
   @Output() closeThePopUp = new EventEmitter<boolean>()
-
-  constructor() { }
+  @Input() id!:Number; 
+  podcast!:Podcast;
+  constructor(private podcastService:PodcastService) { }
 
   ngOnInit(): void {
+    this.podcastService.getSinglePodcast(this.id).subscribe({
+      next:(res)=>{
+        this.podcast=res
+        console.log(this.podcast)
+      }
+    })
   }
 
   close(){
