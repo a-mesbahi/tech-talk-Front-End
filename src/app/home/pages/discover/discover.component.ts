@@ -27,7 +27,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DiscoverComponent implements OnInit {
   url:string = environment.fireBaseUrl
-  recentPodcasts!:Podcast[];
+  recentPodcasts:Podcast[] = [];
   podcastSearchedName!:string;
   podcatserGetted!:Podcaster[];
   sendingRequest:boolean = false;
