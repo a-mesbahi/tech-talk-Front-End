@@ -14,7 +14,7 @@ export class PodcastsComponent implements OnInit {
   dataArrived:boolean=false;
   podcasts!:Podcast[];
   OpenthePodcastPop:boolean=false;
-
+  idOfPodcast!:Number;
   constructor(private podcastService:PodcastService) { }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class PodcastsComponent implements OnInit {
 
   openPodcast(id:Number|null){
     this.OpenthePodcastPop=true;
-    console.log(id)
+    if(id!=null) this.idOfPodcast=id
   }
   closePopUp(){
     this.OpenthePodcastPop=false;

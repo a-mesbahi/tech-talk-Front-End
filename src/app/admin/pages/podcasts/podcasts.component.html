@@ -1,6 +1,6 @@
 <div>
     <div class="w-11/12  m-auto">
-        <h1 class="uppercase text-lg font-extrabold">podcasters</h1>
+        <h1 class="uppercase text-lg font-extrabold">podcasts</h1>
     </div>
     <div style="height: 87vh;" class="relative overflow-x-auto shadow-md w-11/12 p-4 m-auto mt-10">
         <div class="flex items-center justify-between pb-4 bg-white ">
@@ -180,5 +180,5 @@
         </table>
     </div>
 
-    <app-podcast-pop-up *ngIf="OpenthePodcastPop" (closeThePopUp)="closePopUp()"></app-podcast-pop-up>
+    <app-podcast-pop-up [id]="idOfPodcast" *ngIf="OpenthePodcastPop" (closeThePopUp)="closePopUp()"></app-podcast-pop-up>
 </div>
